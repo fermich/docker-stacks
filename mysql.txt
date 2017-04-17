@@ -1,0 +1,18 @@
+sudo apt-get update
+sudo apt-get install libmysqlclient-dev
+pip install mysqlclient
+
+docker ps
+docker commit ctn_id jupyter/datascience-notebook
+docker images
+
+-------
+MySQL Additional config:
+- comment out the following lines:
+  - skip-networking 
+  - bind-address = <some ip-address>
+  in /etc/mysql/mariadb.conf.d file
+- restart MariaDb
+- connect as root and release:
+  GRANT ALL PRIVILEGES ON *.* TO 'user'@'172.17.0.2' IDENTIFIED BY 'password' WITH GRANT OPTION;
+
